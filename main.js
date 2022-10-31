@@ -12,49 +12,47 @@ let random = 0;
 function getRandomNumber(max) {
     return Math.ceil(Math.random() * max);    
    }
-// funcion valores random entre 1-5 malos(condicional )
+// funcion valores random entre 1-6 malos(condicional )
+function makeBadLight (){
+    let random = getRandomNumber(6); //hasta el 6
+    if (random <= 2){
+        random =2
+    }else if (random >2 && random<5){
+        random=3;
+    }else if (random >=5){
+        random =5;
+    }
+    return random;
+}
 //Función héroes
 function goodLight () {      
     const selectValue = parseInt(select.value);     
     return selectValue;
-
-//función malvados
-function getRandomNumber(max) {
-    return Math.ceil(Math.random() * max);
-   }
 }
 //comparar
-   function compare (good, evil){
+function compare (good, evil){
     if (good > evil){
-        console.log ("ganan los buenos")
+        console.log (good,evil)
         htmlResult('Ha ganado el Ejército del Bien! Enhorabuena.')
-       } else if (good >= evil){
-        console.log ("ganan los malos")
+    } else if (good >= evil){
+        console.log ("good, evil")
         htmlResult("Empate");
-       }else {
+    }else {
         console.log (good,evil);
         htmlResult('Ha ganado el Ejército del Mal! Vuelve a intentarlo.')
-       }
     }
-    function htmlResult (result){
+}
+    //Lo escribe en el HTML
+function htmlResult (result){
         textResult.innerHTML= result;
-    }
+}
 //funcion manejadora "madre"
 function handleClick (event) {
     event.preventDefault(); //no refresca
     const goodHeroes= goodLight();
-    //const malos = 
-    const result = compare (goodHeroes,random);
-   
-    //goodHeroes ();
-    //compare (x,y);
-   
+    const badHeroes= makeBadLight();
+    compare (goodHeroes, badHeroes); 
 }
 
-/*function getRandomNumber(max) {
-    return Math.ceil(Math.random() * max);
-    }
-}*/
-
 //evento
-button.addEventListener("click", handleClick);
+btn.addEventListener('click', handleClick)  //no entiendo por qué no me escucha el evento
