@@ -1,9 +1,9 @@
 'use strict';
 
 //variables
-const select = document.querySelector('js-good');
-const btn = document.querySelector('js-battle');
-const textResult= document.querySelector('js-text');
+const select = document.querySelector('.js-good');
+const btn = document.querySelector('.js-battle');
+const textResult= document.querySelector('.js-text');
 
 let random = 0;
 // funciones
